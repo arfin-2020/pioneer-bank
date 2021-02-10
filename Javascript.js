@@ -31,9 +31,14 @@ depositbtn.addEventListener("click", function() {
     // document.getElementById("currentBalance").innerText = totalBalance;
 
     const depositNumber = getInputNumber("depositAmount"); //see in geInputNumber please for understand code
-    updateSpanText("currentDeposit", depositNumber);
-    updateSpanText("currentBalance", depositNumber);
-    document.getElementById("depositAmount").value = "";
+    if (depositNumber < 0) {
+        alert("Diposit number cannot be negative");
+    } else {
+        updateSpanText("currentDeposit", depositNumber);
+        updateSpanText("currentBalance", depositNumber);
+        document.getElementById("depositAmount").value = "";
+    }
+
 })
 
 //Withdraw button eventhandler
